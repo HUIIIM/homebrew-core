@@ -1,29 +1,31 @@
 class Dmd < Formula
-  desc "D programming language compiler for macOS"
+  desc "Digital Mars D compiler"
   homepage "https://dlang.org/"
   license "BSL-1.0"
 
   stable do
     # make sure resources also use the same version
-    url "https://github.com/dlang/dmd/archive/refs/tags/v2.103.0.tar.gz"
-    sha256 "98d02ae197dc3ec7959343f6a61ec18294d4e57d61f7749287c6d56270c3891f"
+    url "https://github.com/dlang/dmd/archive/refs/tags/v2.103.1.tar.gz"
+    sha256 "25570505289e0c402095ac168fc62e33f6b34b5e6d06f781d32954cc3d45e803"
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/refs/tags/v2.103.0.tar.gz"
-      sha256 "65d0d5ff4bce2ea881fc5db5140ec14f7567e87d4dfcdb16f400e1e4457e9221"
+      url "https://github.com/dlang/phobos/archive/refs/tags/v2.103.1.tar.gz"
+      sha256 "d6956b70d582311ffbf0c3464dcd7531eb0bda3dc27a2051ca78fa6b045a0c9f"
     end
 
-    resource "tools" do
-      url "https://github.com/dlang/tools/archive/refs/tags/v2.103.0.tar.gz"
-      sha256 "591bf56d7c8aa45205a3533438fef5bd48007756446f5cf032fcabcc077afdd1"
+    # Fix build on Ventura when newer Xcode is used
+    # Patch merged upstream (https://github.com/dlang/dmd/pull/15139), remove on next version bump
+    patch do
+      url "https://github.com/dlang/dmd/commit/deaf1b81986c57d31a1b1163301ca4d157505220.patch?full_index=1"
+      sha256 "e16eb257c861a612b7fa3a8486e292b7f7faa0bd38a71e0c45d4afada790b7c3"
     end
   end
 
   bottle do
-    sha256 ventura:      "200aee65f276419577ba2316433c1b3d793f9520e907ba166c8733ed1ffeb3d4"
-    sha256 monterey:     "4a13fe5652c58fd90b3e70559ffecd54ce73eca5977be8191864ebf59b672b07"
-    sha256 big_sur:      "f79dcb83dd943a13a79cf509864c74037708f28c233ca523e9f2e1b2bb3cceec"
-    sha256 x86_64_linux: "c2d2e3f288b5f75fac14881883e04b38134983736de161ab47717e5639ebba6e"
+    sha256 ventura:      "2c0f4ef63d746054f52d50f7b1b7d7704fde017676521fc9bfdaf4b7764de359"
+    sha256 monterey:     "32665bb76aabe97c94c0cf90f8dc7f22b6e1b717ccc9cc1dc00d39b723c57c82"
+    sha256 big_sur:      "3384609eb4981d5e75d4e313d2d60d177be2256b6c4122c5d91bbd247ad53bff"
+    sha256 x86_64_linux: "bcde5e16ee044846dde8e48bee336820e0604909580ade6a0773d91e09275d40"
   end
 
   head do
@@ -31,10 +33,6 @@ class Dmd < Formula
 
     resource "phobos" do
       url "https://github.com/dlang/phobos.git", branch: "master"
-    end
-
-    resource "tools" do
-      url "https://github.com/dlang/tools.git", branch: "master"
     end
   end
 
@@ -65,11 +63,6 @@ class Dmd < Formula
 
     (buildpath/"phobos").install resource("phobos")
     system "make", "-C", "phobos", "VERSION=#{buildpath}/VERSION", *make_args
-
-    resource("tools").stage do
-      inreplace "posix.mak", "install: $(TOOLS) $(CURL_TOOLS)", "install: $(TOOLS) $(ROOT)/dustmite"
-      system "make", "install", *make_args
-    end
 
     kernel_name = OS.mac? ? "osx" : OS.kernel_name.downcase
     bin.install "generated/#{kernel_name}/release/64/dmd"
@@ -106,6 +99,12 @@ class Dmd < Formula
 
   def post_install
     install_new_dmd_conf
+  end
+
+  def caveats
+    <<~EOS
+      Ancillary tools (e.g. ddemangle, dustmite, rdmd) are now in the `dtools` formula.
+    EOS
   end
 
   test do

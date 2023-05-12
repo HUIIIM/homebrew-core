@@ -1,19 +1,19 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.248.tar.gz"
-  sha256 "9f06f13e588034e323df9222532b76518ace8bf5e4eb4ca9fbc6960addf03a93"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.250.tar.gz"
+  sha256 "a1cd4f7d8d58bec26efb1e5ea73f82dcf36a9662d55401b81a783071b211a35a"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "bbca7853efe7c2c4dadedb0c848165f582205ced98217fab3956943b300abc2e"
-    sha256 cellar: :any,                 arm64_monterey: "b6a2424d44dde6292ebc5bc28bd6a29a7d61a684af6c3aa2cc6b95e4f957acfc"
-    sha256 cellar: :any,                 arm64_big_sur:  "9829572bfd2b5f07fbf13ebb0f9f9a5fddf15e7329af1f8021360473b8b3f94f"
-    sha256 cellar: :any,                 ventura:        "e79fdee19f661477106a72a1c949d0a318792c73aa9ebeac0b7e8c573d6f0bf6"
-    sha256 cellar: :any,                 monterey:       "b4f733eae3b532462b5efa4cd5b2aa6a595401a2981e83e264b79c8dc02896fc"
-    sha256 cellar: :any,                 big_sur:        "9879d034ead09df11da7d8b334413d8596740a41f80222b77f6533e3e4d7d92a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01c13694f17007d7d0845463c0771052be4042c16c5b178a1d7b2dfb4efe0ca7"
+    sha256 cellar: :any,                 arm64_ventura:  "35640ca7a274e095c7ba6619010b416755709b0b6ca898fac734018d664cafd3"
+    sha256 cellar: :any,                 arm64_monterey: "55ba17c63cb698844c4c578fff44c5a1270aba177a86b34e8b962dd201fb71a1"
+    sha256 cellar: :any,                 arm64_big_sur:  "1d193b892373f39237cd8d8532e83114de1f7c616418934e8168e1eedc478fb9"
+    sha256 cellar: :any,                 ventura:        "86b90ae78d2ee4fdac851385389e57c3c09c95980473d3d54bea514390d96f04"
+    sha256 cellar: :any,                 monterey:       "bd529be54e7e4f0789b1004ae2dfbd5a18540438ca241bf94f2e8ea05cede9c7"
+    sha256 cellar: :any,                 big_sur:        "e74eff0f4bf7e15e5dee2bf5aa47a58272a79664bcd576d7c13f06454c663b1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54d9e8cb757c28c660399da31e0bd789346b01c8c0d9d29b2ffc67b8b36f5e70"
   end
 
   depends_on "cmake" => :build
@@ -55,12 +55,12 @@ class VulkanTools < Formula
       "-DBUILD_CUBE=ON",
       "-DBUILD_VULKANINFO=ON",
       "-DINSTALL_ICD=OFF", # we will manually place it in a nonconflicting location
-      "-DGLSLANG_INSTALL_DIR=#{Formula["glslang"].prefix}",
-      "-DVULKAN_HEADERS_INSTALL_DIR=#{Formula["vulkan-headers"].prefix}",
-      "-DVULKAN_LOADER_INSTALL_DIR=#{Formula["vulkan-loader"].prefix}",
+      "-DGLSLANG_INSTALL_DIR=#{Formula["glslang"].opt_prefix}",
+      "-DVULKAN_HEADERS_INSTALL_DIR=#{Formula["vulkan-headers"].opt_prefix}",
+      "-DVULKAN_LOADER_INSTALL_DIR=#{Formula["vulkan-loader"].opt_prefix}",
     ]
     args += if OS.mac?
-      ["-DMOLTENVK_REPO_ROOT=#{Formula["molten-vk"].prefix}"]
+      ["-DMOLTENVK_REPO_ROOT=#{Formula["molten-vk"].opt_prefix}"]
     else
       [
         "-DBUILD_WSI_DIRECTFB_SUPPORT=OFF",

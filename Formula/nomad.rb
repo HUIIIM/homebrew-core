@@ -1,8 +1,8 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  url "https://github.com/hashicorp/nomad/archive/v1.5.3.tar.gz"
-  sha256 "f974ee06ef47b4b2bdf1981466e3498b509242a56a1e8a813b2405182e04601b"
+  url "https://github.com/hashicorp/nomad/archive/v1.5.5.tar.gz"
+  sha256 "85ead33524e847ad02525a038d54ee6ecbbdebcbf364a97f55289ec142101742"
   license "MPL-2.0"
   head "https://github.com/hashicorp/nomad.git", branch: "main"
 
@@ -12,16 +12,22 @@ class Nomad < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5816c06ad084e6780c533660322c8b7117beb7b123c87d9a2ddccf93fefb446"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4624e9ca5cf478cd8b6524c9f7910c47fd92fa7a3c3c696ab7ab2de7cd7a82f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9aebaa1f0270d4bfb70681a35fafc8c8e74d1071916048ad7167cc2e32a28481"
-    sha256 cellar: :any_skip_relocation, ventura:        "e1526fd21474e7342c6176b6bc3a02449a652eb1e138e61a7018d75826377c07"
-    sha256 cellar: :any_skip_relocation, monterey:       "52b285970a37cca7e25581591dcbcb9feb18d68f75853c90bd10c0cb0e54db46"
-    sha256 cellar: :any_skip_relocation, big_sur:        "95a5bcb0ed3b0811647c3384517e95d4d24a276c16db1f65f23644ce72d361ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c9ef8c4a487383d32d1fd2c1ab24d49ff4df543e7305461865eb4c109a177b1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "85b9561dcf98d9549f9428716d5b314b79c35106e1d4b7223bcbe365ab791041"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5c4e3ff62d73f620a1da949a137eb8e6b53fd5c33331660be20e3228b43b0c8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "93798e3f5fa663fd0a389e77c94b78f0638b6f9240944d793dfbeaf83f8acd54"
+    sha256 cellar: :any_skip_relocation, ventura:        "fed4d8d9d1278b906b061978e71bd5af333172aea8d90759df5071d184589ec8"
+    sha256 cellar: :any_skip_relocation, monterey:       "b80bfce36186e5ecc7bae53b6d3747700472d0249e9878c3f0f219e65b2ecdbe"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b045dee26b4718562223098bff7596f451289bae0c460c72dc0ac53f3fed384e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9082e494aad4a4c40d25bd24769fae59d84e6a6697d2935a349a7736e676403a"
   end
 
   depends_on "go" => :build
+
+  # Fix build on Big Sur. Remove when release includes this commit.
+  patch do
+    url "https://github.com/hashicorp/nomad/commit/780fcf9043f271caa249c8aceba69338db52dfbf.patch?full_index=1"
+    sha256 "67222324f824e18f7a7e4cf83a22d8b759e37e4053dd2c8c2a90772dff5f9ccc"
+  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags", "ui"

@@ -6,6 +6,7 @@ class Netpbm < Formula
   url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4534"
   version "10.86.38"
   license "GPL-3.0-or-later"
+  revision 1
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
@@ -16,13 +17,14 @@ class Netpbm < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "054cfb909cb0fea808266665ac223c9a9ed36ee9251fc229861da599b9b7c120"
-    sha256 arm64_monterey: "21929c81ac82a2252c12542a365a2e768295d9bd70c04f0aa4cd6b01ba10a1db"
-    sha256 arm64_big_sur:  "0a632031ca0508e0948e4ce5cb0109ffab3b87d4c29cfefd603b0f3120d170ed"
-    sha256 ventura:        "da752b8a5e482ca4c7d3dde2e4849dfb9e949796c86fa9c57e92b4221ff8b432"
-    sha256 monterey:       "17f70522e011337410440abf0b9cfcb762567b6311a45fa17fc4209c18e7ad32"
-    sha256 big_sur:        "18f29aec18785031a0260641e6a81178c4bb79d50cfb02e97121ad3ea6f7cac2"
-    sha256 x86_64_linux:   "b9a1d7243bc1980ec25896704aafd44372f2bc920394d2588ef0d440879f7c3f"
+    rebuild 1
+    sha256 arm64_ventura:  "9ff16b71c6348e3942f637886f45e5b07b27357056d587b4d2484380d90fdd97"
+    sha256 arm64_monterey: "1d68b2864f75de77f1acee7cb97445ee175115cc6d03164d09381b184bb61e16"
+    sha256 arm64_big_sur:  "e5f94b26bd98fc1777d791044b0cfe8fe15d251f89d5c21a6a126617c8d25af7"
+    sha256 ventura:        "23182fe0629870931c9ef21421a30896ed42c9b1300696779d9ec415977dcb41"
+    sha256 monterey:       "99818b30ee4b6ed3f70b2a6d5a3e11082a5f4ebd196c9aeb45c54ada94bc1702"
+    sha256 big_sur:        "68867880d23ac8fec178025a70390c43aafb1db7d8d4af782e0cff3686d724d6"
+    sha256 x86_64_linux:   "fdf9b76989406e9a48304722230113c69d8a1b7ec6c0843d0ef6adea18ceafde"
   end
 
   depends_on "jasper"
@@ -60,6 +62,7 @@ class Netpbm < Formula
     end
 
     ENV.deparallelize
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" # Workaround for Xcode 14.3.
     system "make"
     system "make", "package", "pkgdir=#{buildpath}/stage"
 
@@ -74,6 +77,11 @@ class Netpbm < Formula
       lib.install buildpath.glob("staticlink/*.a"), buildpath.glob("sharedlink/#{shared_library("*")}")
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
+
+    # We don't run `make install`, so an unversioned library symlink is never generated.
+    # FIXME: Check whether we can call `make install` instead of creating this manually.
+    libnetpbm = lib.glob(shared_library("libnetpbm", "*")).reject(&:symlink?).first.basename
+    lib.install_symlink libnetpbm => shared_library("libnetpbm")
   end
 
   test do

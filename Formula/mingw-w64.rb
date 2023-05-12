@@ -1,10 +1,9 @@
 class MingwW64 < Formula
   desc "Minimalist GNU for Windows and GCC cross-compilers"
   homepage "https://sourceforge.net/projects/mingw-w64/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v10.0.0.tar.bz2"
-  sha256 "ba6b430aed72c63a3768531f6a3ffc2b0fde2c57a3b251450dcf489a894f0894"
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v11.0.0.tar.bz2"
+  sha256 "bd0ea1633bd830204cc23a696889335e9d4a32b8619439ee17f22188695fcc5f"
   license "ZPL-2.1"
-  revision 5
 
   livecheck do
     url :stable
@@ -12,13 +11,13 @@ class MingwW64 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "ee1d61e35831277e15210ea706229cc8cbe16b206717255a520f236b5012aa24"
-    sha256 arm64_monterey: "c926536c55942ed1ccbfc3ebbeb7d50d20639cdbfc4e81fa67e650d66fe45d7a"
-    sha256 arm64_big_sur:  "708388e37455b9234f7aa49bdcbe09cb3ef19f8cb5978d79e73e9da55f0360c3"
-    sha256 ventura:        "c7f1f733d4990046a37915f690b731db78d8721eec963782773af317f14e7f09"
-    sha256 monterey:       "ebb56a2250a5ed9b7f77ff13a444f3d7c86c6cc01bde8027b3c0b0b6b9c3dbe4"
-    sha256 big_sur:        "394186157ca868084bf0bdabbdd4ed57a8e659ef9b3ddb34ff02be228705c70e"
-    sha256 x86_64_linux:   "9a7375f3e26b052d84d35dab0ec35f76aa6634c0a7da4d0076a9188d6a26781e"
+    sha256 arm64_ventura:  "8dbb584293d0a96282c1f061b746817c857aeadbfd21e8e9925a87397a993b74"
+    sha256 arm64_monterey: "f8cd3096f2944bac0ff2c1e1f2d8761811b3167dfda449f12798f35ce555c557"
+    sha256 arm64_big_sur:  "1c28c4f22f13d037ba6c450ffbe778c75f7e2e7a3415178d06a00865b0c3d2a6"
+    sha256 ventura:        "bc21617fdc0a06a58d3e9bf7b7477e41d45d22084acf14d55d560e3a096acf9e"
+    sha256 monterey:       "ad5683e6294f4987a6449060119975d44fc3552db646d4299cb73aa5880b8116"
+    sha256 big_sur:        "3b116e27e63fceac65715c861676bd7bff76fe650afcbf1537ab03b6a2ed2bd0"
+    sha256 x86_64_linux:   "7c09f410c628293c420d818814c33e9c5a265982c3dbe1ccedae4f9232ec5aa2"
   end
 
   # Apple's makeinfo is old and has bugs
@@ -44,9 +43,9 @@ class MingwW64 < Formula
   end
 
   resource "gcc" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-12.2.0/gcc-12.2.0.tar.xz"
-    sha256 "e549cf9cf3594a00e27b6589d4322d70e0720cdd213f39beb4181e06926230ff"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-13.1.0/gcc-13.1.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-13.1.0/gcc-13.1.0.tar.xz"
+    sha256 "61d684f0aa5e76ac6585ad8898a2427aade8979ed5e7f85492286c4dfc13ee86"
   end
 
   def target_archs

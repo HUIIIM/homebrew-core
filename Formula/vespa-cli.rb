@@ -1,24 +1,24 @@
 class VespaCli < Formula
   desc "Command-line tool for Vespa.ai"
   homepage "https://vespa.ai"
-  url "https://github.com/vespa-engine/vespa/archive/v8.155.19.tar.gz"
-  sha256 "a6b5f71a2390dca5f781452409eb2989cda5c6db01a8483e89c98d7af1c95012"
+  url "https://github.com/vespa-engine/vespa/archive/v8.162.29.tar.gz"
+  sha256 "ad73cc219f0c0decb0208a18b03c1655c3af2844ccfb29fa4dadfc17d1e7191e"
   license "Apache-2.0"
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/\D*?(\d+(?:\.\d+)+)(?:-\d+)?["' >]}i)
+    regex(/\D*?(\d+(?:\.\d+)+)(?:-\d+)?/i)
     strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8b4829bbe0bc5dcefb7df8e7e384dd88abce10f61826a0e701ce37bfba85b83"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0a47db47bea08137f6a4644ae5bd96d50b630a728afcf8679c38ee3726f10a6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97cbf09853355aef179c86bc79ba54485627551b2de4dc49e7d48363de1e46cf"
-    sha256 cellar: :any_skip_relocation, ventura:        "94a796b11c68548d950008073eb12660387eaeed569cf7230cfc62fb71748a46"
-    sha256 cellar: :any_skip_relocation, monterey:       "8b913109b8555647ab0d52b7733bc37d04c26dde2286d365763fa3d372531c69"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f363cc73e1fad46aebd162d961559b6d4204ec019e0017ce6ff80426c90fcaa7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54fcdea3d9b18c82638fd0489d057de830276ba6d4eabd79e9d5ae9017307874"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48decfb18cde1c060b828d02be7051d906b8eabbf8a35147bf74ad99512dc560"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a2d6853bbb2c6c3430b8546c81094a4b90354cb8cf71d078849517825c617c33"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "92f16e06a699ff32a0e8ef851fe426689f6da86c68271fe69373347f77eb05e0"
+    sha256 cellar: :any_skip_relocation, ventura:        "1e6ccf2cb0fc8492b8a66ee013342b2408256c67d8a3af257b083900a51808cb"
+    sha256 cellar: :any_skip_relocation, monterey:       "1234cddf315570f4c3487f08becd4ecdcb93dc5461d0aebe280e853b33f7f666"
+    sha256 cellar: :any_skip_relocation, big_sur:        "81601c4d843269feed89531b3cf716862a9d9db3ae4d8f4a08f200bad1b5a068"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0840fd623b8e61711400dcab5c5aeeddcc0bbd6842dfed773bc71c4bd302f3ef"
   end
 
   depends_on "go" => :build
@@ -26,7 +26,7 @@ class VespaCli < Formula
   def install
     cd "client/go" do
       with_env(VERSION: version.to_s, PREFIX: prefix.to_s) do
-        system "make", "all", "manpages"
+        system "make", "install", "manpages"
       end
       generate_completions_from_executable(bin/"vespa", "completion")
     end

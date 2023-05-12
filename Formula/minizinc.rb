@@ -1,20 +1,19 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/2.7.2.tar.gz"
-  sha256 "edba6eb389f9afd6ba84c35fc57970174c71bd48642599276ac0d3dd9a9b931a"
+  url "https://github.com/MiniZinc/libminizinc/archive/2.7.4.tar.gz"
+  sha256 "012f8b1b995d2f93c6cb67f4e1e5321e8666ae51bd38e65337f7351f76468996"
   license "MPL-2.0"
-  revision 1
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ebe868f7f13a332df10006c65a8b8f1f12d7eb9451b3a1357af86297a284dfb5"
-    sha256 cellar: :any,                 arm64_monterey: "291019320cb539c0274151526be048280767a58fe6c02a0099ccab4fdb97103b"
-    sha256 cellar: :any,                 arm64_big_sur:  "ad7c5535a677e8f23c8052886f430eda9749643f6d10ab1a4f2faf3281e8af74"
-    sha256 cellar: :any,                 ventura:        "62625cc64a53039518d7c3d2735a41536ae0836acbcc9900f276284484434d85"
-    sha256 cellar: :any,                 monterey:       "c549d9cf804b1166a2083d7443c490ce252610d48b8d4074a0e2d5776ef9ec61"
-    sha256 cellar: :any,                 big_sur:        "222bb163e950c00ecdc842878ac3cc1ee3333525d0e6576012bc902d702769c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60e8bdeea0ce7aaea2ef40d2894bce3ba78cc5357248f0ca366db402eee5abdc"
+    sha256 cellar: :any,                 arm64_ventura:  "40c630289e524a6c759fd08d70cc3a4d72c7f09120bef8cecac69c1f0c2863e9"
+    sha256 cellar: :any,                 arm64_monterey: "07f81a75a76561c66759b4cabe4ea48e6a09b5d3b3a30dd9e7d8622c511ec68f"
+    sha256 cellar: :any,                 arm64_big_sur:  "b210f4db472c387010df53b07a30170f427572102cebdabf4878bbc75d79f431"
+    sha256 cellar: :any,                 ventura:        "0330cc12104a8ad21216c24a5d930b2ca5ae9c058b54dc1b922f0101efe23f25"
+    sha256 cellar: :any,                 monterey:       "53d11d9f67d35f8cd83ddffe5cc6a5eb3e4434c359644548ee18212a158fe73d"
+    sha256 cellar: :any,                 big_sur:        "6c04e15c6509f43c3dd76ec66f9cf610488d1f5e6240c349aca92f678f0f2aa6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06e8ad019fc9ec28ec9a83cab7f97ac936cec6f92fb4ccc981278e159b3b2821"
   end
 
   depends_on "cmake" => :build

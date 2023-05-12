@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v1.19.0",
-      revision: "cec5c6432a2693e4362e151bf689f3b41dd94694"
+      tag:      "v1.21.0",
+      revision: "5c1aca4412e5f5aea91c081d4af3492ae95dc93c"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,13 +15,13 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "6ad2a98c6d3db0913e1af528665b3756b8e679b43c9da21e6582dda9cce2f399"
-    sha256 cellar: :any, arm64_monterey: "304d96ed63f8d326f0c43aff7185e1815aa6bbd87b339a3537b226157c7f3086"
-    sha256 cellar: :any, arm64_big_sur:  "73a1b1cd1852942e51f4e773b7cbfd07395d989776c2e1908105ccbdf7d41c0a"
-    sha256 cellar: :any, ventura:        "4882f4984d95fc0d30424aafb2e7a4e64f3eaff19d12e1a718b570bdaabc2d68"
-    sha256 cellar: :any, monterey:       "f1624f95bf0ca1292dfc0f81b25f3b8c8ab1d634d178f4f603f301f29564a9c1"
-    sha256 cellar: :any, big_sur:        "f6ccdfb8499de68a955e9a4819c7b84470e7d986fa2ce9e39f616f5b6b4508c7"
-    sha256               x86_64_linux:   "482eb3ad473b8b2fac07c4af8b8263bd22f4be301772f1c247e35dc7d2595a86"
+    sha256 cellar: :any, arm64_ventura:  "f1cd9bf14f249645c7fbf716f5e744c9dff7db4876acbf8853b9071eb6f66afe"
+    sha256 cellar: :any, arm64_monterey: "19c5f8c5468aacfd52305828982ba6eeb7b33548b82188667d4f93fa367581de"
+    sha256 cellar: :any, arm64_big_sur:  "5714b5529138fce047e90b00588b19b99794180641a64d7c1fc2a4780e2b24d4"
+    sha256 cellar: :any, ventura:        "31744f055eeafc1d597b2bc897f028e176137dc28f5f5c7fb03caf70c248f070"
+    sha256 cellar: :any, monterey:       "57e13fb1ce10620be48266209af76e53e370fde4e130d6e47d6d1cc09b398ebe"
+    sha256 cellar: :any, big_sur:        "11194423c8b05c547f7053b5cec444a7459e112b24e1f497ea3c99e3def12c06"
+    sha256               x86_64_linux:   "b259b71cae6ba9ecd1145a39d69fe902070deb5c67f6f2ce202cd80d2932e472"
   end
 
   depends_on "cmake" => :build
@@ -122,11 +122,11 @@ class Semgrep < Formula
   end
 
   resource "peewee" do
-    url "https://files.pythonhosted.org/packages/f2/a9/61d0cd8861fb62abb9d6fd93ca848e46bdfe3d96299f0f76931f06c1cbfb/peewee-3.16.1.tar.gz"
-    sha256 "03ba808b96bb3366fc7e949d669804d79059e01d472f0dfaddc2da5fa1614ee7"
+    url "https://files.pythonhosted.org/packages/a9/50/1dd5ea74c559df4afb8391f8d05f0fec685dbe8effba13bb9072901eb288/peewee-3.16.2.tar.gz"
+    sha256 "10769981198c7311f84a0ca8db892fa213303a8eb1305deb795a71e7bd606a91"
   end
 
-  resource "Pygments" do
+  resource "pygments" do
     url "https://files.pythonhosted.org/packages/89/6b/2114e54b290824197006e41be3f9bbe1a26e9c39d1f5fa20a6d62945a0b3/Pygments-2.15.1.tar.gz"
     sha256 "8ace4d3c1dd481894b2005f560ead0f9f19ee64fe983366be1a21e171d12775c"
   end
@@ -142,18 +142,18 @@ class Semgrep < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
+    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/31/3b/2360352760b436f822258396e66ffb6d42585518a9cde2f93f142e64c5eb/rich-13.3.4.tar.gz"
-    sha256 "b5d573e13605423ec80bdd0cd5f8541f7844a0e71a13f74cf454ccb2f490708b"
+    url "https://files.pythonhosted.org/packages/3d/0b/8dd34d20929c4b5e474db2e64426175469c2b7fea5ba71c6d4b3397a9729/rich-13.3.5.tar.gz"
+    sha256 "2d11b9b8dd03868f09b4fffadc84a6a8cda574e40dc90821bd845720ebb8e89c"
   end
 
-  resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/46/a9/6ed24832095b692a8cecc323230ce2ec3480015fbfa4b79941bd41b23a3c/ruamel.yaml-0.17.21.tar.gz"
-    sha256 "8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"
+  resource "ruamel-yaml" do
+    url "https://files.pythonhosted.org/packages/eb/a4/e056a6f778bfc01d653dd777e5ff57c1f1b48fcaa889d75bac0ef9650768/ruamel.yaml-0.17.22.tar.gz"
+    sha256 "c22ec58aaca5105f771cb8f7ac45ad631b5e8b00454ebe1822d442fb696e9e62"
   end
 
   resource "tomli" do

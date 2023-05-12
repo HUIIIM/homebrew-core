@@ -1,19 +1,19 @@
 class Oauth2c < Formula
   desc "User-friendly CLI for OAuth2"
   homepage "https://github.com/cloudentity/oauth2c"
-  url "https://github.com/cloudentity/oauth2c/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "69639a25f9f5f38a3f4334f12f1bdb31d8055922b5ad8d5c46353c6d464d3ea1"
+  url "https://github.com/cloudentity/oauth2c/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "be62e87c41ecee2f39fb78b59e298d26c198f1100d0c017beb26a45094ebe0fb"
   license "Apache-2.0"
   head "https://github.com/cloudentity/oauth2c.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c340efd1a2557efe1d42770e0566f5ba5f2edaae137cb5a4693baecb826ecab"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c340efd1a2557efe1d42770e0566f5ba5f2edaae137cb5a4693baecb826ecab"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c340efd1a2557efe1d42770e0566f5ba5f2edaae137cb5a4693baecb826ecab"
-    sha256 cellar: :any_skip_relocation, ventura:        "9040d5a420b8aabdf34117307369d84c98aa614f88ebdb846cc231910356bdfa"
-    sha256 cellar: :any_skip_relocation, monterey:       "9040d5a420b8aabdf34117307369d84c98aa614f88ebdb846cc231910356bdfa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9040d5a420b8aabdf34117307369d84c98aa614f88ebdb846cc231910356bdfa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f82c601d4dc585302fb7ca242802b79ee25d907868fd31456d285ef1537ac2c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73f1a3031fca1347a801c5c1ba0981ba250fb645020c372a85a1cb8d119abba5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "73f1a3031fca1347a801c5c1ba0981ba250fb645020c372a85a1cb8d119abba5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73f1a3031fca1347a801c5c1ba0981ba250fb645020c372a85a1cb8d119abba5"
+    sha256 cellar: :any_skip_relocation, ventura:        "0a40b23c2a2e958e1291ddafcb3c38c4237dc6fcdb0f5efa6aa7f8debd415059"
+    sha256 cellar: :any_skip_relocation, monterey:       "0a40b23c2a2e958e1291ddafcb3c38c4237dc6fcdb0f5efa6aa7f8debd415059"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0a40b23c2a2e958e1291ddafcb3c38c4237dc6fcdb0f5efa6aa7f8debd415059"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4347ff760a1b1b8491952da1533aa7c7997b37b061ae89bf6a48cd8ed5eef653"
   end
 
   depends_on "go" => :build

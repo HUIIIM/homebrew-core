@@ -1,19 +1,19 @@
 class Infracost < Formula
   desc "Cost estimates for Terraform"
   homepage "https://www.infracost.io/docs/"
-  url "https://github.com/infracost/infracost/archive/v0.10.20.tar.gz"
-  sha256 "1c7c478d8fc5aa51cc1492fb6d3c747dbfcfe9c931ec2e54705dfd7eef249a30"
+  url "https://github.com/infracost/infracost/archive/v0.10.22.tar.gz"
+  sha256 "274b3379e37daee40eceb581f72e873a53ff9e5bf881f86b168947d9203853fe"
   license "Apache-2.0"
   head "https://github.com/infracost/infracost.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5d8fe255b9228d03f8487881853d621e3ca7b4f702ac71b53bef2274c40336b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5d8fe255b9228d03f8487881853d621e3ca7b4f702ac71b53bef2274c40336b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5d8fe255b9228d03f8487881853d621e3ca7b4f702ac71b53bef2274c40336b"
-    sha256 cellar: :any_skip_relocation, ventura:        "f9f6a5c4bc3586c2361b91f5e857ec677ea98de847d9311bc2e32656d53b294a"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9f6a5c4bc3586c2361b91f5e857ec677ea98de847d9311bc2e32656d53b294a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f9f6a5c4bc3586c2361b91f5e857ec677ea98de847d9311bc2e32656d53b294a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96a877f49a02a4371e70b94d25bc8c43c93bd16d5ed2daf422c302f232570468"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "86b33232ae65303a8f23fbbac4ccc7be5cf4831551732e8a9dbac76f9d6ad6e0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86b33232ae65303a8f23fbbac4ccc7be5cf4831551732e8a9dbac76f9d6ad6e0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86b33232ae65303a8f23fbbac4ccc7be5cf4831551732e8a9dbac76f9d6ad6e0"
+    sha256 cellar: :any_skip_relocation, ventura:        "2442c6a49f9d8aa6713070215a142eccbf87a8c43cc305e23026760e2a32ed55"
+    sha256 cellar: :any_skip_relocation, monterey:       "2442c6a49f9d8aa6713070215a142eccbf87a8c43cc305e23026760e2a32ed55"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2442c6a49f9d8aa6713070215a142eccbf87a8c43cc305e23026760e2a32ed55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2249b066bb9ea2d3a4c3d80cb51874855ac6c151f15497b5ce6a35cb24071122"
   end
 
   depends_on "go" => :build

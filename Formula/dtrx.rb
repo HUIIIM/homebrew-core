@@ -3,19 +3,18 @@ class Dtrx < Formula
 
   desc "Intelligent archive extraction"
   homepage "https://pypi.org/project/dtrx/"
-  url "https://files.pythonhosted.org/packages/3b/3b/426aacf32cfc661b1adbb61f3285367e9aff083252fd369a76bd3f565876/dtrx-8.5.0.tar.gz"
-  sha256 "66e2e1d5bf98401aec70c44e78192ca478d2138c7a6395863e51d07b085355b0"
+  url "https://files.pythonhosted.org/packages/b7/e6/204294b57be7bb5072c217a1c3ddd5acf9b60b006c215e13e11121c04108/dtrx-8.5.3.tar.gz"
+  sha256 "eec67869b85068fac8406f5018d781aee5b55422f3b7698bfea43468b2cec67c"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "79d57f98e77e7db091fca4366b4ba5b802dd6701f8f6cdd2319e33b97bce6e99"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee4717644293fb60d28aa52cba2e97377942553a935fe244298630e8186673c1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7b411cf09d028d15d21385f5ecf776ab2dcf0d0266d8645fba5e89bd0ae68a6"
-    sha256 cellar: :any_skip_relocation, ventura:        "04ec6cffb870d361258a407cd9c3902b4958e648884a4e73b24b0f8f7b797e3d"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f5c95bff48c1abf26d3f9f50af103b6637bd83fd99c55e27e1a0c96e30011ab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c2a9e723f04f09663bc8f46c90932dd5d75a7c4f1ab9ed78b62f5cb6a9910656"
-    sha256 cellar: :any_skip_relocation, catalina:       "3043ce0dcaacd4f746682a7c2c31b914e2942adebed523409087579c6e1b7707"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5acc79a0c95cc06c9bd6154330218642fdba6bb676817f153eaf6fa45036de1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f5c7f156466e498729c08b514d71653924a8e80608c25d834d6c19af38d6be3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6afd2b7089bcc4778cdcc0785ee5aeec4bfa7e3f1f325823185873e993ba7cac"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "783fe0f14c66dc81c9accfc0bcd704c8a85c458f7d05a69e232f33e9b4394797"
+    sha256 cellar: :any_skip_relocation, ventura:        "174026128d9cffc6f70bf3bf8fd8a791eca1d1840cf8d39fc586219962786954"
+    sha256 cellar: :any_skip_relocation, monterey:       "4be0c1b639312098dbab1cd7031d7e13c4586bcf99040676fdb0a902ced1d29f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7c539cceb534dfaea15540170888aeee11c57159a56214baa7cbceb1a51282f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1c72291b1ac4380ff4a2bb6036d05c8fcbc318015b0b5301b2208674c72e3ab"
   end
 
   # Include a few common decompression handlers in addition to the python dep

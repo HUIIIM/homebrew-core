@@ -1,10 +1,10 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_3.2.3.tar.gz"
-  sha256 "c8444f0aae428a5ed555ddd809c9a4b144b4c9bb29f81057393893c34b1ac0e4"
+  url "https://gmic.eu/files/source/gmic_3.2.4.tar.gz"
+  sha256 "63b441bd1dea5c4c776b9ef166c94a2f7c71f65cb87aa0eff0ca8aa3075ad692"
   license "CECILL-2.1"
-  head "https://github.com/dtschump/gmic.git", branch: "master"
+  head "https://github.com/GreycLab/gmic.git", branch: "master"
 
   livecheck do
     url "https://gmic.eu/files/source/"
@@ -12,13 +12,13 @@ class Gmic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c873d15189f277f0b2c5f92ec9fec7ad8a5013f15fdffa1f7e7ee011ac4cf60e"
-    sha256 cellar: :any,                 arm64_monterey: "f629a5614974dbfdbab40a6eea27a7e5df58909ecda1b03b8711f27af7a1f3dc"
-    sha256 cellar: :any,                 arm64_big_sur:  "bfcbbaed2c3180ad713befe3998c1ed38dd5f71e9137a2bd4f7b3fa545db07ac"
-    sha256 cellar: :any,                 ventura:        "ced7500e257819ede4c38d649253dc9a38567baf36ccd526b445c2cee6998359"
-    sha256 cellar: :any,                 monterey:       "325fb7bb3343df1a74a917b2c69f15c670c680f2204faac8c1931a19f97c0928"
-    sha256 cellar: :any,                 big_sur:        "3e49c1fcefb6280f1de64c55b71cf0ebb9745956fc21eb697139f38693ab2c72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "652a03aed76dddff2e8185a4f8e528adccbb6a3838ff33ae2322408647cc8531"
+    sha256 cellar: :any,                 arm64_ventura:  "cd1ea50814e73e61323c523aae62ac984c49cb0d2d45cfa03275c51ca94c057a"
+    sha256 cellar: :any,                 arm64_monterey: "fb3a1c155b8b6af8a279b21a2ad19d56b3778990b5e2adbe6416c5be477f4bc0"
+    sha256 cellar: :any,                 arm64_big_sur:  "472b6af95974fe7c0627f2714e6b7b2a2be851be1c15a0b73c176e0ad1f580b7"
+    sha256 cellar: :any,                 ventura:        "80ed34f41f3a03b1dd445eb544b4f68166fc2cf02260b7aee54bab126698047a"
+    sha256 cellar: :any,                 monterey:       "830c8776b9902473abae9b96f2ab08681a53c038ca008f74227a1fb68c6b510f"
+    sha256 cellar: :any,                 big_sur:        "fa2b31d737a531ef3c82165f3b74a5887a36106e01d99b70119655762072f332"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20f33abae7d38140c1bdb0dc42cb5e6b3b4abe4c011261bda86481145583cef7"
   end
 
   depends_on "pkg-config" => :build

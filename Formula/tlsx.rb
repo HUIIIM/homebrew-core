@@ -1,8 +1,8 @@
 class Tlsx < Formula
   desc "Fast and configurable TLS grabber focused on TLS based data collection"
   homepage "https://github.com/projectdiscovery/tlsx"
-  url "https://github.com/projectdiscovery/tlsx/archive/v1.0.7.tar.gz"
-  sha256 "8a86cda1d91e8878b927a85634e704de2a433fbb2c353f38c7f6fa9f023b0964"
+  url "https://github.com/projectdiscovery/tlsx/archive/v1.0.9.tar.gz"
+  sha256 "036fb003412b05407c84424311c59fb4c41a63b63ad5300f226e5fa4fd7b439c"
   license "MIT"
   head "https://github.com/projectdiscovery/tlsx.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Tlsx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51727db52c0d72542a8b6b91d78b83878cefef0ed7417241f6bf9b86aad2732e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "51727db52c0d72542a8b6b91d78b83878cefef0ed7417241f6bf9b86aad2732e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51727db52c0d72542a8b6b91d78b83878cefef0ed7417241f6bf9b86aad2732e"
-    sha256 cellar: :any_skip_relocation, ventura:        "999c406c054c9470a1882198bfb86003fd7047d2c592fdcfa539ccdd181a8eef"
-    sha256 cellar: :any_skip_relocation, monterey:       "2dcda4c7c44096fe30feac94fa3ae0e3016c1b54676c366d6073f2c8d7c5a399"
-    sha256 cellar: :any_skip_relocation, big_sur:        "84cb46087ccc8422054ffedaa3f21f083c84b6087b2fa10356dae9401aac3cd0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8d22d7e6af28e3cc8a60e110172f4e9d487f73ed081a85739855df36c68c097"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e8196e076dd126fc2f078fa7378f1778dc23ec299178996c49781bcc289dff9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e8196e076dd126fc2f078fa7378f1778dc23ec299178996c49781bcc289dff9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e8196e076dd126fc2f078fa7378f1778dc23ec299178996c49781bcc289dff9"
+    sha256 cellar: :any_skip_relocation, ventura:        "a09a767f3b3858caa877296238d78e4541236e41d9836df62656657df36d1ea3"
+    sha256 cellar: :any_skip_relocation, monterey:       "b93a72142bc63f50355763a1da93d1275bbbf7d306810346ff9f1be2f10ffae5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b2bc2fcaf32c3aced3d526f37524bb4a34343b08ad150706a584428e48de85a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77830afc623f7bc7c0ea4ed516e30983ddd6c74231e8b349a51480e82c675f81"
   end
 
   depends_on "go" => :build

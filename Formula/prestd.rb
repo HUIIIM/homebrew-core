@@ -1,8 +1,8 @@
 class Prestd < Formula
   desc "Simplify and accelerate development on any Postgres application, existing or new"
   homepage "https://github.com/prest/prest"
-  url "https://github.com/prest/prest/archive/v1.2.5.tar.gz"
-  sha256 "9899e7cc3188a42cdd8702a2547dc37dc6a37659a17d169d2b567b4c5eaa68ef"
+  url "https://github.com/prest/prest/archive/v1.3.0.tar.gz"
+  sha256 "bf4414958afdcabde963a1cae39bbdffc8927c17d45ba98449428c322588bb0d"
   license "MIT"
   head "https://github.com/prest/prest.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Prestd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "faa2ebf0292c08120492df052b0016313850f54431fb521f3f9e572013429695"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff897ff9a7150ee355f0df0b2a4aa903fb672345aed82480a9506d086a14033b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b1499dbfa087f5644434b0f6c99d8f601049a688e255f355a4752edb7e3bf7d"
-    sha256 cellar: :any_skip_relocation, ventura:        "8bb35ecb12405b9feefc581f16a57cbf12a300e6a11bcbe3bce9d8f149836808"
-    sha256 cellar: :any_skip_relocation, monterey:       "888e2b757c8d003c544f6c43beaf29934de16f2e4c9291eefb9a851e1f14e1da"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1f5a4298466d00d40cfddbce067774498a6d25cece617885be97ce579f63f3b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb14d7549c4ab22a1ccc177dd4ddca8f536df8ee39150d621a5e42ea38fdd883"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4be79ba17d0580039107770f2883ad1855164d3119b4387dd77292d879d3c672"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f9ec1401762dfe291c2bb7111ccc34da2329bf0fc77e76808c8bf55dd9f48811"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0184660b40c81e3409611a1b953ba562ff4658cf91908b9aa4e092a3911ad607"
+    sha256 cellar: :any_skip_relocation, ventura:        "a09154529b65f83713b051c0fb937f6593097a5eeb8c46dcacadd37824a1fc4f"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c73dd6365c0ef077409664791894fb7ab554624aaeb7af6a2b34bd31b332162"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f55b56af02cbf9e700a9ee04c26a049178430bff430b81f8984816d469fc926a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db0c076418d76704b8ab09e45befef2f9d04c2dc76bf1e016fd16120c5d91c00"
   end
 
   depends_on "go" => :build

@@ -1,17 +1,17 @@
 class Clipboard < Formula
   desc "Cut, copy, and paste anything, anywhere, all from the terminal"
   homepage "https://getclipboard.app"
-  url "https://github.com/Slackadays/Clipboard/archive/refs/tags/0.6.0.tar.gz"
-  sha256 "8e87800d376f6649ae489d5aeb5af35ee079ca2e56e75902e1a45b4167180065"
+  url "https://github.com/Slackadays/Clipboard/archive/refs/tags/0.7.1.tar.gz"
+  sha256 "ade73db60fdbdff8c68a4dc97f854aae502304e8294d57a7b32f6b01d48f8eef"
   license "GPL-3.0-or-later"
   head "https://github.com/Slackadays/Clipboard.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "567881d4b39b83a7ec810cfebe0b7bfc6828164e497e791e019f50cdbb0dab62"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d56b78f9633fed6e047f1b595a09c627ffb48bf2b0ad68a351045ea3c9449fa"
-    sha256 cellar: :any_skip_relocation, ventura:        "5ba34ebe7146091c0581985c61a3160614dd49490cb6d32bb9ede23b1a039492"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f605675ed9fc4989bd2c7766a1ed30e75b7faf761898ed3aff8580d112be331"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "826afa3681f29ed730159a7d0ca15ac0cedad1a60ec82b75fe9f576b2882df55"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a2dd67a849867986c247cc38a83cf31ab19704d66ee8c0d59d2402c60fc0b4a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e63afa8aa45fb12eabc7bd8c4135cfe3531b0892ad0310709e82065550e0bb4b"
+    sha256 cellar: :any_skip_relocation, ventura:        "983569e06fc435d3cac374c964c937f580bba1e81953837c0ffa88782a08a8f1"
+    sha256 cellar: :any_skip_relocation, monterey:       "4b1be02e8e749428234ab78fccfbd83b259cbf303eed941898fb5478de7a5e29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c9974d6e0c660e188b36d9c894df39c0aab6e28e4c613c0b662bd2262ff46ed"
   end
 
   depends_on "cmake" => :build
@@ -38,8 +38,8 @@ class Clipboard < Formula
   test do
     ENV["CLIPBOARD_FORCETTY"] = "1"
     ENV["CLIPBOARD_NOGUI"] = "1"
-    system bin/"clipboard", "copy", test_fixtures("test.png")
-    system bin/"clipboard", "paste"
+    system bin/"cb", "copy", test_fixtures("test.png")
+    system bin/"cb", "paste"
     assert_predicate testpath/"test.png", :exist?
   end
 end

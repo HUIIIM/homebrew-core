@@ -1,19 +1,19 @@
 class VulkanValidationlayers < Formula
   desc "Vulkan layers that enable developers to verify correct use of the Vulkan API"
   homepage "https://github.com/KhronosGroup/Vulkan-ValidationLayers"
-  url "https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/v1.3.247.tar.gz"
-  sha256 "f24b37ada8545389239b7fb3caa5e2dd93acede96c23a471dc8dd8cbae2bcbf9"
+  url "https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/v1.3.249.tar.gz"
+  sha256 "631582fb19be0344a884758338e6e17cef8596e709c86bcd6a3ab5cd845af58b"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-ValidationLayers.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "485d831b0e8e5023469d700f3814f3616d818e2421698f0ae4d2d700ad39a7f6"
-    sha256 cellar: :any,                 arm64_monterey: "a9be726a917a5d858f500d39e375f94e10c0a099cf2b07241607efa9bf85a0f3"
-    sha256 cellar: :any,                 arm64_big_sur:  "5b0b441797173f64321b1b411e54a2be959cbd0850111a021c81bd9a870f2602"
-    sha256 cellar: :any,                 ventura:        "e7ec1b0ab19458b1f9c93d7e3dc1a14396f0a69ed64601a3ab2737120b7e7c71"
-    sha256 cellar: :any,                 monterey:       "c5a3251f32e8e117325c4cbf473fe4b4ca4a9d83595a51d14ea4286d0f0005f2"
-    sha256 cellar: :any,                 big_sur:        "39a94e7ad88c9019a272b4e726dc825d1f270d5168946c47b9698d7b8291a700"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99940a98424fd2bbb6ac2b50cca23054264b023d094be90d0a04a2bb042f5422"
+    sha256 cellar: :any,                 arm64_ventura:  "a0b7c4feb0803c33f7c3e993a7cbd2535922567ecdf640a77acf0461d26cf388"
+    sha256 cellar: :any,                 arm64_monterey: "ed70aee85d1cb98a93f1fb7e443d06351abcd3e157f250a6f43697e1f91ac91a"
+    sha256 cellar: :any,                 arm64_big_sur:  "71ab88ceb2441185c2d62a3001b02ee2eb5d2b30c2c0688e535c8054eae13888"
+    sha256 cellar: :any,                 ventura:        "37253937aae7cf18e604553466c1a5759c072036f1672b7e458b02082d339767"
+    sha256 cellar: :any,                 monterey:       "155f8f3fbcb9d59e312b87b9aae5dd83c5b4d7ff84b01b1153581ef561d38332"
+    sha256 cellar: :any,                 big_sur:        "cf67856781b21d793ca1d6e0718c257da40fe25bd2dfb6d2280c15fa94b3d949"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8dca669713a26968559cbbbc7f13886261901bce8efcdccf452151796fdea208"
   end
 
   depends_on "cmake" => :build
@@ -71,9 +71,9 @@ class VulkanValidationlayers < Formula
     expected = <<~EOS
       Instance Layers: count = 1
       --------------------------
-      VK_LAYER_KHRONOS_validation Khronos Validation Layer #{version}  version 1
+      VK_LAYER_KHRONOS_validation Khronos Validation Layer \\d\\.\\d\\.\\d+  version 1
     EOS
     actual = shell_output("vulkaninfo --summary")
-    assert_match expected, actual
+    assert_match Regexp.new(expected), actual
   end
 end

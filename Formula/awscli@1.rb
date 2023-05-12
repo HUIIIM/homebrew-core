@@ -4,8 +4,8 @@ class AwscliAT1 < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   # awscli should only be updated every 10 releases on multiples of 10
-  url "https://files.pythonhosted.org/packages/89/f2/d86a3a45cc706bb7c8c4c03c10796acf938c3d7900dcb42a161c10f3e33f/awscli-1.27.110.tar.gz"
-  sha256 "faa2801f2c9a15b3171af9a726f7604f11c0b75e96830ab85add88e87a33106a"
+  url "https://files.pythonhosted.org/packages/a9/0b/e5bc649e2855c4b0d32872702b9d176ce03484f526c7356d7b7336900526/awscli-1.27.130.tar.gz"
+  sha256 "123cea15d1207dcb1f23fcecb5a66e75922d07ca7da0ad41e8b238d826526a66"
   license "Apache-2.0"
 
   livecheck do
@@ -14,13 +14,13 @@ class AwscliAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ac4d013a530a5040d4fe70b29c804c1b1a65c722172c8d75f28abdc8897c3232"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "49170baad7cadefcb138e0339e86a4976663cec7b7b7ce121d68807393e4d05f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5a131a2802ab14ce48ce744c83706b33d91ecf1bcfd1d4f47423baa64cbb279"
-    sha256 cellar: :any_skip_relocation, ventura:        "65546f9244f470bfa1c3a15cd7cd2ae7de62c0bd6841babdf42d038942630d78"
-    sha256 cellar: :any_skip_relocation, monterey:       "79c8bd515f465ac74e1f016671451fb208294056a349f918e88555fd1ab223ce"
-    sha256 cellar: :any_skip_relocation, big_sur:        "042631c7ae5403d525a981657b5c9ef5adb2e39a99b26e95fde54b84d75acf30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d4cbc14c0c75d819d60db3ce8b365a80240b752a09d2e1e8de3ee900598028e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbdbc9f256ccbefe17887b76d7f406c73b83a52fe3dcc7ebfec56268db58243d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "16ca818cafcc6fa25ce182bba66ac0fc7850cb1692cc6e3a49086a1cca890225"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3e3b7e8c19b1b41e3da8da9244f3cb80ef0d35b65e42f48f07681f9c541153ec"
+    sha256 cellar: :any_skip_relocation, ventura:        "54eaf2e680aac8afe527e672f2d1b342b727acf3ef5d0883febc85eb3997c96c"
+    sha256 cellar: :any_skip_relocation, monterey:       "dcb2c3cc46a8e01da682f6d8bdfa6c7007d49598109c34dcf3b9e9bc524ca66b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "39a592f10d7d7dffe73842d462054d785909186d2ddc8872597d2f4536ee3dd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b84d14316e3107574b1abda281131df4e20e0bbe496b8dcb6cec3763ea45f98e"
   end
 
   keg_only :versioned_formula
@@ -33,8 +33,8 @@ class AwscliAT1 < Formula
   uses_from_macos "mandoc"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d1/39/120331cd4b1e1bb4ff615bd417a9063a183734fa0974014f57009de4a318/botocore-1.29.110.tar.gz"
-    sha256 "9d5054159782b19f27bff3e5a65bc494dc323255e889ea3abec002711a1fb0c0"
+    url "https://files.pythonhosted.org/packages/06/90/ebf7823cc41d239b037ab730c38b57336e537a927032a33ad55e9de44b36/botocore-1.29.130.tar.gz"
+    sha256 "3a31293b84ecfe5f5f2c4b7dc85a77d7b890b468a376b593fde15cacc76862dd"
   end
 
   resource "colorama" do
@@ -48,8 +48,8 @@ class AwscliAT1 < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/a4/db/fffec68299e6d7bad3d504147f9094830b704527a7fc098b721d38cc7fa7/pyasn1-0.4.8.tar.gz"
-    sha256 "aef77c9fb94a3ac588e87841208bdec464471d9871bd5050a287cc9a475cd0ba"
+    url "https://files.pythonhosted.org/packages/61/ef/945a8bcda7895717c8ba4688c08a11ef6454f32b8e5cb6e352a9004ee89d/pyasn1-0.5.0.tar.gz"
+    sha256 "97b7290ca68e62a832558ec3976f15cbf911bf5d7c7039d8b861c2a0ece69fde"
   end
 
   resource "python-dateutil" do
@@ -63,8 +63,8 @@ class AwscliAT1 < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/e1/eb/e57c93d5cd5edf8c1d124c831ef916601540db70acd96fa21fe60cef1365/s3transfer-0.6.0.tar.gz"
-    sha256 "2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
+    url "https://files.pythonhosted.org/packages/49/bd/def2ab4c04063a5e114963aae90bcd3e3aca821a595124358b3b00244407/s3transfer-0.6.1.tar.gz"
+    sha256 "640bb492711f4c0c0905e1f62b6aaeb771881935ad27884852411f8e9cacbca9"
   end
 
   resource "urllib3" do
